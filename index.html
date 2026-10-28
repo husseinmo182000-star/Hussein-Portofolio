@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حسين محمد | متخصص SEO</title>
+  <meta name="description" content="حسين محمد — متخصص SEO بيساعد مشاريعك تظهر في أول نتائج جوجل وتجيب عملاء حقيقيين." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #050810;
+      --panel: #0b1325;
+      --text: #f1f5f9;
+      --muted: #98a6bd;
+      --accent: #22d3ee;
+      --accent2: #2dd4bf;
+      --green: #4ade80;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Tajawal', 'Cairo', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #22d3ee40; border-radius: 99px; }
+
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+    .gradient-text {
+      background: linear-gradient(100deg, var(--accent), var(--accent2) 50%, var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Tajawal', sans-serif;
+    }
+    .btn-primary {
+      background: linear-gradient(100deg, var(--green), var(--accent2), var(--accent));
+      color: #04121a;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px #22d3ee28; }
+    .btn-outline {
+      background: #ffffff06;
+      color: var(--text);
+      border: 1px solid #ffffff24;
+    }
+    .btn-outline:hover { border-color: #22d3ee80; color: var(--accent); }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #22d3ee0a;
+      border: 1px solid #22d3ee30;
+      color: var(--accent);
+    }
+    section { scroll-margin-top: 80px; }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      animation: blob-drift 20s ease-in-out infinite alternate;
+    }
+    @keyframes blob-drift {
+      from { transform: translate3d(-20px, 0, 0) scale(.9); }
+      to   { transform: translate3d(30px, 40px, 0) scale(1.15); }
+    }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .3s, border-color .3s;
+    }
+    #header.scrolled {
+      background: rgba(5, 8, 16, .90);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #ffffff0e;
+    }
+    .logo {
+      font-family: 'Cairo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 4px; align-items: center; }
+    nav a {
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color .2s, background .2s;
+    }
+    nav a:hover, nav a.active { color: var(--accent); background: #22d3ee10; }
+    .nav-cta {
+      margin-right: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(100deg, var(--green), var(--accent));
+      color: #04121a !important;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px #22d3ee30; }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid #ffffff24;
+      color: var(--text);
+      padding: 8px 13px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    #mobile-nav {
+      display: none;
+      position: fixed;
+      top: 76px; right: 12px; left: 12px;
+      background: #0b1120;
+      border: 1px solid #22d3ee30;
+      border-radius: 20px;
+      padding: 16px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 6px;
+    }
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a {
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    #mobile-nav a:hover { background: #22d3ee10; color: var(--accent); }
+
+    /* ─── HERO ─── */
+    #home {
+      position: relative;
+      padding-top: 155px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    #home .blob:nth-child(1) {
+      width: 600px; height: 600px;
+      background: #22d3ee18;
+      top: -150px; right: -100px;
+      animation-delay: 0s;
+    }
+    #home .blob:nth-child(2) {
+      width: 400px; height: 400px;
+      background: #4ade8012;
+      bottom: 0; left: -80px;
+      animation-delay: -10s;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr .82fr;
+      align-items: center;
+      gap: 60px;
+    }
+    .hero-eyebrow { margin-bottom: 22px; }
+    .hero-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(36px, 5vw, 66px);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -.01em;
+      color: var(--text);
+      margin: 0 0 22px;
+    }
+    .hero-desc {
+      font-size: 18px;
+      line-height: 1.95;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 34px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 44px;
+      padding-top: 34px;
+      border-top: 1px solid #ffffff0e;
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: 'Cairo', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* Portrait */
+    .portrait-wrap { position: relative; isolation: isolate; }
+    .portrait-card {
+      position: relative;
+      border-radius: 28px;
+      border: 1px solid #22d3ee45;
+      overflow: hidden;
+      background: #08131f;
+      box-shadow: 0 0 80px #22d3ee0d, 0 40px 80px #0006;
+    }
+    .portrait-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .portrait-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, #050810 70%);
+      padding: 80px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .portrait-caption strong {
+      font-family: 'Cairo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .portrait-caption span {
+      font-size: 12px;
+      letter-spacing: .1em;
+      color: var(--accent);
+    }
+
+    .float-badge {
+      position: absolute;
+      background: #0b1421;
+      border: 1px solid #22d3ee40;
+      border-radius: 14px;
+      padding: 11px 15px;
+      font-size: 13px;
+      color: #bceff0;
+      white-space: nowrap;
+      z-index: 2;
+      font-weight: 600;
+    }
+    .float-badge.b1 { top: -14px; left: 50%; transform: translateX(-50%); animation: floaty 5s ease-in-out infinite; }
+    .float-badge.b2 { top: 38%; left: -18px; animation: floaty 7s ease-in-out infinite; }
+    .float-badge.b3 { bottom: 90px; right: -18px; animation: floaty 6s ease-in-out infinite reverse; }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-badge.b1 { transform: translateX(-50%) translateY(0); }
+    .float-badge.b1:hover { transform: translateX(-50%) translateY(-5px); }
+
+    /* ─── SECTION COMMON ─── */
+    .section { padding: 88px 0; position: relative; }
+    .section:nth-child(even) { background: linear-gradient(180deg, #ffffff01, transparent); }
+    .section-head { margin-bottom: 48px; }
+    .section-head h2 {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text);
+      margin: 14px 0 16px;
+    }
+    .section-head p { color: var(--muted); max-width: 680px; line-height: 1.95; font-size: 17px; }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .service-card {
+      padding: 38px;
+      border: 1px solid #ffffff12;
+      border-radius: 28px;
+      background: radial-gradient(ellipse at top left, #22d3ee08, transparent 65%), #ffffff02;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #22d3ee50;
+      box-shadow: 0 20px 50px rgba(34, 211, 238, .08);
+    }
+    .service-icon {
+      width: 54px; height: 54px;
+      border-radius: 15px;
+      background: #22d3ee10;
+      border: 1px solid #22d3ee30;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-card h3 { font-size: 21px; font-weight: 800; color: var(--text); line-height: 1.4; font-family: 'Cairo', sans-serif; }
+    .service-card p { color: var(--muted); line-height: 1.9; font-size: 15px; }
+    .service-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .service-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #c4cfdf;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .service-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── WHY ME CARDS ─── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      padding: 30px;
+      border: 1px solid #ffffff10;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #ffffff06, #ffffff02);
+      transition: transform .3s, border-color .3s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #22d3ee45; }
+    .card-num {
+      font-family: 'Cairo', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: #2dd4bf35;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .card h3 { font-size: 19px; font-weight: 800; margin-bottom: 10px; color: #edf4ff; font-family: 'Cairo', sans-serif; }
+    .card p { color: var(--muted); font-size: 15px; line-height: 1.9; }
+
+    /* ─── RESULTS ─── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .result-item {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      border-top: 1px solid #22d3ee28;
+      align-items: flex-start;
+    }
+    .result-num {
+      font-family: 'Cairo', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 80px;
+    }
+    .result-item h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; font-family: 'Cairo', sans-serif; }
+    .result-item p { color: var(--muted); font-size: 15px; line-height: 1.85; }
+
+    /* ─── CASE STUDIES ─── */
+    .cases-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .case-tab {
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid #ffffff18;
+      background: #ffffff05;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: 'Tajawal', sans-serif;
+    }
+    .case-tab.active,
+    .case-tab:hover {
+      background: #22d3ee15;
+      border-color: #22d3ee60;
+      color: var(--accent);
+    }
+    .case-panel { display: none; }
+    .case-panel.active { display: block; }
+
+    /* Card layout */
+    .case-card {
+      border: 1px solid #ffffff10;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0d1828, #080f1c);
+      transition: border-color .3s;
+    }
+    .case-card:hover { border-color: #22d3ee35; }
+
+    /* Before/After special */
+    .case-before-after .case-img {
+      width: 100%;
+      border-radius: 0;
+    }
+    .case-before-after .case-body {
+      padding: 32px 36px;
+    }
+
+    /* Standard case layout */
+    .case-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .case-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .case-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform .4s;
+    }
+    .case-card:hover .case-img-wrap img { transform: scale(1.02); }
+    .case-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, #080f1c 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .case-body {
+      padding: 36px 36px 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+    .case-domain {
+      font-size: 12px;
+      letter-spacing: .1em;
+      color: var(--accent);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .case-domain::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+    .case-body h3 {
+      font-family: 'Cairo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .case-body p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0;
+    }
+    .case-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cstat {
+      background: #22d3ee08;
+      border: 1px solid #22d3ee25;
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: 90px;
+    }
+    .cstat-val {
+      font-family: 'Cairo', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .cstat-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+    .case-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .case-tag-item {
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #ffffff14;
+      font-size: 12px;
+      color: #8fa8c0;
+      font-weight: 600;
+    }
+
+    /* Before/After specific */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+    .ba-img-wrap { position: relative; overflow: hidden; }
+    .ba-img-wrap img { width: 100%; display: block; }
+    .ba-label {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      font-family: 'Cairo', sans-serif;
+    }
+    .ba-before { background: #ef444430; border: 1px solid #ef4444; color: #fca5a5; }
+    .ba-after  { background: #4ade8030; border: 1px solid #4ade80; color: #bbf7d0; }
+    .ba-body { padding: 28px 36px 32px; }
+    .ba-body h3 {
+      font-family: 'Cairo', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .ba-body p { color: var(--muted); font-size: 15px; line-height: 1.9; }
+    .ba-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .ba-point {
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .ba-point.was {
+      background: #ef444410;
+      border: 1px solid #ef444430;
+      color: #fca5a5;
+    }
+    .ba-point.now {
+      background: #4ade8010;
+      border: 1px solid #4ade8030;
+      color: #bbf7d0;
+    }
+    .ba-point span {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      opacity: .7;
+    }
+
+    @media (max-width: 900px) {
+      .case-layout { grid-template-columns: 1fr; }
+      .case-img-wrap { min-height: 220px; }
+      .case-img-wrap::after { background: linear-gradient(to top, #080f1c 0%, transparent 40%); }
+      .ba-grid { grid-template-columns: 1fr; }
+      .ba-points { grid-template-columns: 1fr; }
+      .case-body { padding: 24px; }
+      .ba-body { padding: 20px 24px 26px; }
+    }
+
+    /* ─── PROCESS ─── */
+    .process-list { display: flex; flex-direction: column; gap: 0; }
+    .process-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid #ffffff0a;
+      position: relative;
+    }
+    .process-step {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #22d3ee10;
+      border: 2px solid #22d3ee40;
+      display: grid;
+      place-items: center;
+      font-family: 'Cairo', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .process-item h3 { font-size: 19px; font-weight: 800; color: var(--text); margin-bottom: 8px; font-family: 'Cairo', sans-serif; }
+    .process-item p { color: var(--muted); font-size: 15px; line-height: 1.9; }
+
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 900px; }
+    .faq {
+      border: 1px solid #ffffff12;
+      background: #ffffff04;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color .2s, background .2s;
+    }
+    .faq[open] { background: #ffffff08; border-color: #22d3ee45; }
+    .faq summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 22px;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+      color: #e2e8f0;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq-icon { color: var(--accent); font-size: 22px; transition: transform .2s; flex-shrink: 0; }
+    .faq[open] .faq-icon { transform: rotate(45deg); }
+    .faq-body { padding: 0 22px 20px; color: var(--muted); line-height: 2; font-size: 15px; }
+
+    /* ─── CTA BANNER ─── */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 65px 32px;
+      border-radius: 30px;
+      border: 1px solid #22d3ee30;
+      background: radial-gradient(ellipse at top, #22d3ee16, transparent 65%), #ffffff02;
+      gap: 20px;
+      margin: 80px 0;
+    }
+    .cta-section h2 {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .cta-section p { max-width: 660px; color: var(--muted); font-size: 17px; line-height: 1.9; }
+    .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .contact-info h3 { font-size: 22px; font-weight: 800; margin-bottom: 14px; font-family: 'Cairo', sans-serif; }
+    .contact-info p { color: var(--muted); line-height: 1.9; margin-bottom: 26px; font-size: 16px; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1px solid #ffffff10;
+      border-radius: 14px;
+      background: #ffffff03;
+      color: var(--text);
+      transition: border-color .2s, transform .2s;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .contact-link:hover { border-color: #22d3ee50; transform: translateX(-4px); color: var(--accent); }
+    .contact-link svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+    .form-group label { font-size: 13px; font-weight: 700; color: #c4cfdf; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: #ffffff07;
+      border: 1px solid #ffffff18;
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: 'Tajawal', sans-serif;
+      width: 100%;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #22d3ee70;
+      box-shadow: 0 0 0 3px #22d3ee18;
+    }
+    .form-group select option { background: #0b1325; }
+    ::placeholder { color: #4a5568; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #09111c;
+      border-top: 1px solid #274050;
+      padding: 50px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer-brand .logo { font-size: 22px; margin-bottom: 14px; display: block; }
+    .footer-brand p { color: #a6b8ca; font-size: 14px; line-height: 1.9; max-width: 260px; }
+    .footer-col h4 { font-size: 16px; font-weight: 800; margin-bottom: 16px; font-family: 'Cairo', sans-serif; }
+    .footer-col a {
+      display: block;
+      color: #b8d0df;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 22px;
+      border-top: 1px solid #ffffff12;
+      font-size: 13px;
+      color: #a6b8ca;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .social-links { display: flex; gap: 10px; margin-top: 18px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      border: 1px solid #ffffff18;
+      background: #ffffff05;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .social-link:hover { border-color: #22d3ee60; color: var(--accent); transform: translateY(-2px); }
+    .social-link svg { width: 18px; height: 18px; }
+
+    /* ─── PROGRESS BAR ─── */
+    #progress {
+      position: fixed;
+      top: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      width: 0%;
+      z-index: 10000;
+      pointer-events: none;
+      transition: width .1s;
+      left: 0;
+    }
+
+    /* ─── WHATSAPP ─── */
+    .wa-btn {
+      position: fixed;
+      bottom: 24px; left: 24px;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4ade80, #00a98b);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 4px 30px #22c55e55;
+      z-index: 999;
+      transition: transform .25s;
+    }
+    .wa-btn:hover { transform: scale(1.1); }
+    .wa-btn svg { width: 28px; height: 28px; }
+    .wa-ping::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(74, 222, 128, 0.4);
+      animation: ping 2s cubic-bezier(0,0,.2,1) infinite;
+      z-index: -1;
+    }
+    .wa-btn { position: fixed; }
+    @keyframes ping {
+      0% { transform: scale(1); opacity: .5; }
+      80%, 100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-section {
+      padding: 0;
+      overflow: hidden;
+      border-top: 1px solid #ffffff0a;
+      border-bottom: 1px solid #ffffff0a;
+      background: #ffffff01;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+      direction: ltr;
+    }
+    .marquee-track span {
+      padding: 17px 32px;
+      font-size: 14px;
+      letter-spacing: .06em;
+      color: var(--muted);
+      border-left: 1px solid #ffffff0a;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .marquee-track span strong { color: var(--accent); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.2,.65,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .portrait-wrap { max-width: 380px; margin: auto; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+      #menu-toggle { display: block; }
+      .hero-title { font-size: 36px; }
+      .services-grid, .cards-grid, .results-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 18px; }
+      .float-badge { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header id="header">
+    <a href="#home" class="logo">حسين <span>.</span></a>
+
+    <nav>
+      <a href="#home" class="active">الرئيسية</a>
+      <a href="#services">خدماتي</a>
+      <a href="#about">ليه أنا؟</a>
+      <a href="#results">نتائجي</a>
+      <a href="#cases">نتائجي</a>
+      <a href="#cases">نتائجي</a>
+    <a href="#process">ازاي بشتغل</a>
+      <a href="#faq">أسئلة شائعة</a>
+      <a href="#contact" class="nav-cta">تواصل معايا</a>
+    </nav>
+
+    <button id="menu-toggle" aria-label="القائمة">☰</button>
+  </header>
+
+  <div id="mobile-nav">
+    <a href="#home">الرئيسية</a>
+    <a href="#services">خدماتي</a>
+    <a href="#about">ليه أنا؟</a>
+    <a href="#results">نتائجي</a>
+    <a href="#cases">نتائجي</a>
+    <a href="#process">ازاي بشتغل</a>
+    <a href="#faq">أسئلة شائعة</a>
+    <a href="#contact">تواصل معايا</a>
+  </div>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section id="home">
+    <div class="blob"></div>
+    <div class="blob" style="animation-delay:-10s;"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <!-- النص -->
+        <div>
+          <div class="hero-eyebrow">
+            <span class="tag">🔍 متخصص SEO</span>
+          </div>
+
+          <h1 class="hero-title">
+            خليك في أول نتائج جوجل
+            <span class="gradient-text">وجيب عملاء حقيقيين</span>
+          </h1>
+
+          <p class="hero-desc">
+            أنا <strong>حسين محمد</strong> — متخصص SEO بساعد المواقع والمتاجر إنها تظهر في أول جوجل
+            وتجيب زيارات مجانية بتتحول لعملاء فعليين من غير ما تدفع في إعلانات.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/201012669451" target="_blank" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              ابعتلي واتساب
+            </a>
+            <a href="#services" class="btn btn-outline">
+              شوف خدماتي
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">+50</div>
+              <div class="stat-label">مشروع اتنفذ</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">+40</div>
+              <div class="stat-label">عميل سعيد</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">+3</div>
+              <div class="stat-label">سنين خبرة</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">#1</div>
+              <div class="stat-label">نتيجة جوجل</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- الصورة -->
+        <div class="portrait-wrap reveal">
+          <span class="float-badge b1">📈 زيارات عضوية أكتر</span>
+          <span class="float-badge b2">🏆 أول جوجل</span>
+          <span class="float-badge b3">⚡ نتائج حقيقية</span>
+
+          <div class="portrait-card">
+            <img src="hussein.png" alt="حسين محمد — متخصص SEO" loading="eager" />
+            <div class="portrait-caption">
+              <strong>حسين محمد</strong>
+              <span>متخصص SEO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MARQUEE ══════════ -->
+  <div class="marquee-section">
+    <div class="marquee-track" aria-hidden="true">
+      <span>🔍 <strong>SEO تقني</strong></span>
+      <span>📝 محتوى SEO</span>
+      <span>🔗 بناء روابط</span>
+      <span>🗺️ خرائط جوجل</span>
+      <span>📊 تحليل المنافسين</span>
+      <span>⚙️ SEO المتاجر</span>
+      <span>📈 تقارير شهرية</span>
+      <span>🎯 بحث الكلمات</span>
+      <span>🌍 SEO دولي</span>
+      <span>🔍 <strong>SEO تقني</strong></span>
+      <span>📝 محتوى SEO</span>
+      <span>🔗 بناء روابط</span>
+      <span>🗺️ خرائط جوجل</span>
+      <span>📊 تحليل المنافسين</span>
+      <span>⚙️ SEO المتاجر</span>
+      <span>📈 تقارير شهرية</span>
+      <span>🎯 بحث الكلمات</span>
+      <span>🌍 SEO دولي</span>
+    </div>
+  </div>
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">خدماتي</span>
+        <h2>بساعدك تظهر في جوجل <span class="gradient-text">وتجيب عملاء</span></h2>
+        <p>كل خدمة بشتغل فيها هدفها إنك تظهر في أول نتائج البحث وتجيب زيارات مجانية مستمرة.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3>SEO تقني (Technical SEO)</h3>
+          <p>بصلح المشاكل التقنية اللي بتخلي جوجل مش قادر يقرأ موقعك صح — من سرعة التحميل لهيكل الصفحات.</p>
+          <ul class="service-list">
+            <li>تدقيق كامل للموقع واكتشاف المشاكل</li>
+            <li>تحسين سرعة التحميل على الموبايل والديسكتوب</li>
+            <li>إصلاح روابط Sitemap و Robots.txt</li>
+            <li>Schema Markup وبيانات منظمة</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>محتوى SEO (On-Page SEO)</h3>
+          <p>بكتب وأحسّن المحتوى بطريقة تعجب جوجل والزائر في نفس الوقت — من غير حشو أو تكرار مزعج.</p>
+          <ul class="service-list">
+            <li>بحث كلمات مفتاحية بالتفصيل</li>
+            <li>تحسين العناوين والوصف والمحتوى</li>
+            <li>بناء هيكل صفحات واضح ومنظم</li>
+            <li>تحسين الصور والروابط الداخلية</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3>بناء روابط (Off-Page SEO)</h3>
+          <p>بجيب روابط قوية من مواقع موثوقة تقوي سلطة موقعك في عيون جوجل وترفع ترتيبك بشكل دائم.</p>
+          <ul class="service-list">
+            <li>روابط خلفية من مواقع حقيقية وموثوقة</li>
+            <li>Guest Posting في مواقع تخصصية</li>
+            <li>بناء سمعة رقمية للموقع</li>
+            <li>تحليل روابط المنافسين والاستفادة منها</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>SEO المحلي (Local SEO)</h3>
+          <p>لو عندك نشاط تجاري محلي، بخليك تظهر في خرائط جوجل وأول نتائج البحث لمنطقتك.</p>
+          <ul class="service-list">
+            <li>تحسين Google Business Profile</li>
+            <li>الظهور في Google Maps</li>
+            <li>إدارة التقييمات وبناء الثقة</li>
+            <li>استهداف كلمات البحث المحلية</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHY ME ══════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">ليه أنا؟</span>
+        <h2>مش بس بشتغل SEO —  <span class="gradient-text">بفهم هدفك</span></h2>
+        <p>كتير بيعملوا SEO من غير ما يفهموا المشروع. أنا بشتغل بشكل مختلف.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card reveal">
+          <span class="card-num">01</span>
+          <h3>نتائج بتتقاس</h3>
+          <p>مش كلام في الهوا — بقدمك تقارير شهرية بتوضح ترتيبك في جوجل، الزيارات، والتحسينات بالأرقام.</p>
+        </div>
+        <div class="card reveal">
+          <span class="card-num">02</span>
+          <h3>شفافية كاملة</h3>
+          <p>بعرفك إيه اللي بعمله وليه. مفيش حاجة مخفية — وبوضح كل خطوة قبل ما أنفذها.</p>
+        </div>
+        <div class="card reveal">
+          <span class="card-num">03</span>
+          <h3>خطة مخصوصة ليك</h3>
+          <p>مفيش نسخ ولصق. كل مشروع ليه استراتيجية بتتبنى على أساس نشاطه ومنافسيه وهدفه.</p>
+        </div>
+        <div class="card reveal">
+          <span class="card-num">04</span>
+          <h3>خبرة حقيقية</h3>
+          <p>شغلت على مواقع في مجالات مختلفة وجبت نتائج فعلية — مش مجرد وعود على الورق.</p>
+        </div>
+        <div class="card reveal">
+          <span class="card-num">05</span>
+          <h3>متابعة مستمرة</h3>
+          <p>SEO مش شغلة شهر وخلص — بتابع وبحسّن باستمرار عشان النتائج تكمل في الاتجاه الصح.</p>
+        </div>
+        <div class="card reveal">
+          <span class="card-num">06</span>
+          <h3>ردود سريعة</h3>
+          <p>مش هتستنى أيام عشان ترد عليك — بكون متاح وبرد بسرعة على أي سؤال أو استفسار.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ RESULTS ══════════ -->
+  <section class="section" id="results">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">نتائجي بالأرقام</span>
+        <h2>أرقام من <span class="gradient-text">Google Search Console</span></h2>
+        <p>مش وعود — دي إجماليات حقيقية من مواقع اشتغلت عليها. اضغط على "نتائجي" في الأعلى وهتشوف كل مشروع بالتفصيل.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-item reveal">
+          <div class="result-num">9M+</div>
+          <div>
+            <h3>أعلى Impressions لموقع واحد</h3>
+            <p>موقع drmohamedgabr.com وصل لـ 9.05 مليون ظهور في جوجل — من غير أي إعلانات مدفوعة.</p>
+          </div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-num">121K</div>
+          <div>
+            <h3>أعلى كليكات لموقع واحد</h3>
+            <p>نفس الموقع جاب 121 ألف كليك حقيقي من جوجل بمتوسط ترتيب 6.4 — في أعلى الصفحة الأولى.</p>
+          </div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-num">1.9M</div>
+          <div>
+            <h3>Impressions في سنة كاملة</h3>
+            <p>homenestt.com وصل لـ 1.9 مليون ظهور في 12 شهر مع 15 ألف كليك من البحث الطبيعي.</p>
+          </div>
+        </div>
+        <div class="result-item reveal">
+          <div class="result-num">0 جنيه</div>
+          <div>
+            <h3>إعلانات مدفوعة</h3>
+            <p>كل النتائج دي جت من SEO خالص — من غير ما يدفعوا فلوس في Google Ads أو Facebook.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;" class="reveal">
+        <a href="#cases" class="btn btn-primary" onclick="document.querySelector('.case-tab').click()">
+          شوف التفاصيل الكاملة لكل مشروع
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CASE STUDIES ══════════ -->
+  <section class="section" id="cases">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">نتائج حقيقية</span>
+        <h2>Case Studies — <span class="gradient-text">بالأرقام من جوجل</span></h2>
+        <p>دي نتائج من Google Search Console لمواقع اشتغلت عليها — مش كلام، ده proof.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="cases-tabs reveal">
+        <button class="case-tab active" onclick="showCase('c0',this)">قبل وبعد</button>
+        <button class="case-tab" onclick="showCase('c1',this)">Website 1</button>
+        <button class="case-tab" onclick="showCase('c2',this)">Website 2</button>
+        <button class="case-tab" onclick="showCase('c4',this)">Website 4</button>
+        <button class="case-tab" onclick="showCase('c5',this)">Website 5</button>
+      </div>
+
+      <!-- ── Case 0 : Before / After ── -->
+      <div class="case-panel active reveal" id="c0">
+        <div class="case-card case-before-after">
+          <!-- split image -->
+          <div class="ba-grid">
+            <div class="ba-img-wrap">
+              <img src="case-before-after.png" alt="before after SEO" style="object-position:left center; clip-path:inset(0 50% 0 0);" />
+              <span class="ba-label ba-before">قبل ❌</span>
+            </div>
+            <div class="ba-img-wrap">
+              <img src="case-before-after.png" alt="before after SEO" style="object-position:right center; clip-path:inset(0 0 0 50%);" />
+              <span class="ba-label ba-after">بعد ✅</span>
+            </div>
+          </div>
+          <!-- full image fallback (shows the complete before/after) -->
+          <div style="padding:4px 0;">
+            <img src="case-before-after.png" alt="نتيجة SEO — قبل وبعد" style="width:100%;display:block;border-radius:0;" />
+          </div>
+          <div class="ba-body">
+            <div class="case-domain">salesdevelopments.com</div>
+            <h3>الموقع ما كانش بيظهر في جوجل نهائي — دلوقتي بيتصدر بكلمات متعددة</h3>
+            <p>
+              لما بدأنا، الموقع ما كانش بيظهر حتى لما تبحث باسمه بالظبط. المشكلة كانت
+              في هيكل الصفحات والمحتوى غير المُحسَّن. بعد تحليل شامل وعمل On-Page SEO
+              كامل، الموقع دلوقتي بيظهر بكلمات مفتاحية متعددة ومتنوعة.
+            </p>
+            <div class="ba-points">
+              <div class="ba-point was">
+                <span>المشكلة قبل</span>
+                البحث باسم الموقع ما يرجعوش نتائجه
+              </div>
+              <div class="ba-point now">
+                <span>النتيجة بعد</span>
+                ظهور بكلمات مفتاحية متعددة في نتائج البحث
+              </div>
+              <div class="ba-point was">
+                <span>السبب</span>
+                محتوى غير محسّن وهيكل صفحات خاطئ
+              </div>
+              <div class="ba-point now">
+                <span>الحل</span>
+                On-Page SEO كامل + تحسين هيكل الموقع
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Case 1 : Website 1 (homenestt.com) ── -->
+      <div class="case-panel" id="c1">
+        <div class="case-card">
+          <div class="case-layout">
+            <div class="case-img-wrap">
+              <img src="case-website1.png" alt="Website 1 Google Search Console" />
+            </div>
+            <div class="case-body">
+              <div class="case-domain">homenestt.com</div>
+              <h3>موقع عقارات — 15 ألف كليك و1.9 مليون ظهور في 12 شهر</h3>
+              <p>
+                موقع في مجال العقارات. شتغلنا على Technical SEO وتحسين المحتوى بالكامل.
+                النتيجة في السنة الأولى: 15 ألف كليك من جوجل و1.9 مليون impression
+                بمتوسط ترتيب 12.2 — من غير أي إعلانات مدفوعة.
+              </p>
+              <div class="case-stats">
+                <div class="cstat">
+                  <span class="cstat-val">15K</span>
+                  <span class="cstat-label">Total Clicks</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">1.9M</span>
+                  <span class="cstat-label">Impressions</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">12.2</span>
+                  <span class="cstat-label">Avg Position</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">0.8%</span>
+                  <span class="cstat-label">CTR</span>
+                </div>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag-item">Technical SEO</span>
+                <span class="case-tag-item">On-Page SEO</span>
+                <span class="case-tag-item">محتوى</span>
+                <span class="case-tag-item">12 شهر</span>
+                <span class="case-tag-item">عقارات</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Case 2 : Website 2 (drmohamedgabr.com) ── -->
+      <div class="case-panel" id="c2">
+        <div class="case-card">
+          <div class="case-layout">
+            <div class="case-img-wrap">
+              <img src="case-website2.png" alt="Website 2 Google Search Console" />
+            </div>
+            <div class="case-body">
+              <div class="case-domain">drmohamedgabr.com</div>
+              <h3>موقع دكتور — 121 ألف كليك و9 مليون ظهور ومتوسط ترتيب 6.4</h3>
+              <p>
+                موقع طبي في مجال شديد التنافسية. بعد عمل SEO تقني ومحتوى متخصص،
+                الموقع وصل لـ 121 ألف كليك حقيقي وأكتر من 9 مليون ظهور في جوجل
+                بمتوسط ترتيب 6.4 — نتيجة استثنائية في المجال الطبي.
+              </p>
+              <div class="case-stats">
+                <div class="cstat">
+                  <span class="cstat-val">121K</span>
+                  <span class="cstat-label">Total Clicks</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">9.05M</span>
+                  <span class="cstat-label">Impressions</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">6.4</span>
+                  <span class="cstat-label">Avg Position</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">1.3%</span>
+                  <span class="cstat-label">CTR</span>
+                </div>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag-item">Medical SEO</span>
+                <span class="case-tag-item">On-Page SEO</span>
+                <span class="case-tag-item">محتوى طبي</span>
+                <span class="case-tag-item">تنافسية عالية</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Case 4 : Website 4 (alenferad.com) ── -->
+      <div class="case-panel" id="c4">
+        <div class="case-card">
+          <div class="case-layout">
+            <div class="case-img-wrap">
+              <img src="case-website4.png" alt="Website 4 Google Search Console" />
+            </div>
+            <div class="case-body">
+              <div class="case-domain">alenferad.com</div>
+              <h3>موقع خدمات — 1,550 كليك و96 ألف ظهور في 3 شهور بس</h3>
+              <p>
+                موقع خدمات بدأنا عليه SEO من الصفر. في 3 شهور فقط، وصل لـ 1,550 كليك
+                من جوجل و96 ألف ظهور. المتوسط لسه بينزل مع الوقت — الأرقام مرشحة
+                تزيد كتير مع استمرار الشغل.
+              </p>
+              <div class="case-stats">
+                <div class="cstat">
+                  <span class="cstat-val">1.55K</span>
+                  <span class="cstat-label">Total Clicks</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">96K</span>
+                  <span class="cstat-label">Impressions</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">20.2</span>
+                  <span class="cstat-label">Avg Position</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">1.6%</span>
+                  <span class="cstat-label">CTR</span>
+                </div>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag-item">Technical SEO</span>
+                <span class="case-tag-item">Off-Page SEO</span>
+                <span class="case-tag-item">3 شهور</span>
+                <span class="case-tag-item">خدمات</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Case 5 : Website 5 (draliglabeer.com) ── -->
+      <div class="case-panel" id="c5">
+        <div class="case-card">
+          <div class="case-layout">
+            <div class="case-img-wrap">
+              <img src="case-website5.png" alt="Website 5 Google Search Console" />
+            </div>
+            <div class="case-body">
+              <div class="case-domain">draliglabeer.com</div>
+              <h3>موقع دكتور — 4,370 كليك و742 ألف ظهور في 3 شهور</h3>
+              <p>
+                موقع دكتور في مجال طبي متخصص. في 3 شهور، وصلنا لـ 4,370 كليك
+                و742 ألف ظهور في جوجل. الكلمات الأولى في الـ Top Queries بدأت
+                تترتب في المراكز الأولى زي "طقم ثابت في الفم" و"هيرو ثابت الترميمية".
+              </p>
+              <div class="case-stats">
+                <div class="cstat">
+                  <span class="cstat-val">4.37K</span>
+                  <span class="cstat-label">Total Clicks</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">742K</span>
+                  <span class="cstat-label">Impressions</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">16.6</span>
+                  <span class="cstat-label">Avg Position</span>
+                </div>
+                <div class="cstat">
+                  <span class="cstat-val">0.6%</span>
+                  <span class="cstat-label">CTR</span>
+                </div>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag-item">Medical SEO</span>
+                <span class="case-tag-item">محتوى تخصصي</span>
+                <span class="case-tag-item">Local SEO</span>
+                <span class="case-tag-item">3 شهور</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ PROCESS ══════════ -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">ازاي بشتغل</span>
+        <h2>بشتغل بخطوات <span class="gradient-text">واضحة ومنظمة</span></h2>
+        <p>عشان تعرف إيه اللي هيحصل من أول يوم لحد ما تشوف النتايج.</p>
+      </div>
+
+      <div class="process-list">
+        <div class="process-item reveal">
+          <div class="process-step">1</div>
+          <div>
+            <h3>بفهم مشروعك وهدفك</h3>
+            <p>بدايةً بكلمك وبفهم نشاطك، منافسيك، وإيه اللي عايزه بالظبط — من غير ما أحتاج تكون خبير في SEO.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-step">2</div>
+          <div>
+            <h3>تدقيق كامل للوضع الحالي</h3>
+            <p>بحلل موقعك كامل — المشاكل التقنية، المحتوى، الروابط، والمنافسين — وبعمل تقرير واضح بكل اللي لقيته.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-step">3</div>
+          <div>
+            <h3>خطة عمل مخصوصة</h3>
+            <p>بعد التحليل بعملك خطة واضحة فيها الأولويات والخطوات والوقت المتوقع — وبشرحها بأسلوب بسيط.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-step">4</div>
+          <div>
+            <h3>تنفيذ وتحسين مستمر</h3>
+            <p>بدأ التنفيذ خطوة خطوة — تقني، محتوى، روابط — مع متابعة يومية للنتائج وتعديل لو محتاج.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-step">5</div>
+          <div>
+            <h3>تقارير شهرية وضحة</h3>
+            <p>كل شهر بعتلك تقرير بيوضح الترتيبات، الزيارات، والنتائج — وبشرحه بأسلوب مبسط تفهمه بسهولة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <div class="container">
+    <div class="cta-section reveal">
+      <span class="tag">🎯 خد الخطوة الأولى</span>
+      <h2>استشارة <span class="gradient-text">مجانية</span> وبدون أي التزام</h2>
+      <p>كلمني دلوقتي وبخبرك بصراحة إيه اللي موقعك محتاجه وإزاي ممكن نتعاون — من غير ضغط أو وعود فاضية.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/201012669451" target="_blank" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ابعتلي واتساب دلوقتي
+        </a>
+        <a href="mailto:husseinmo182000@gmail.com" class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          أو ابعتلي ميل
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">أسئلة شائعة</span>
+        <h2>أسئلة بيسألني <span class="gradient-text">الناس كتير</span></h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq reveal">
+          <summary>
+            SEO في كام وقت بيجيب نتايج؟
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-body">
+            SEO مش بياخد نتيجة في يوم وليلة — عادةً بتشوف فرق واضح في الترتيبات بعد 3 لـ 6 شهور. لكن الحسابات الإيجابية بتبدأ من أول شهرين زي تحسن المشاكل التقنية وتحسن تجربة الموقع. والنتائج دي بتفضل معاك طول ما موقعك شغال — مش زي الإعلانات اللي بتوقف لما توقف الدفع.
+          </div>
+        </details>
+
+        <details class="faq reveal">
+          <summary>
+            بكام سعر الخدمة؟
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-body">
+            السعر بيختلف حسب حجم الموقع، تنافسية الكلمات، والخدمة المطلوبة. مفيش سعر ثابت لأن كل مشروع له احتياجاته. ابعتلي تفاصيل موقعك وبعملك عرض واضح بدون أي التزام.
+          </div>
+        </details>
+
+        <details class="faq reveal">
+          <summary>
+            إيه الفرق بين SEO والإعلانات المدفوعة؟
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-body">
+            الإعلانات بتجيبلك زيارات طول ما بتدفع — لما تقف الدفع تقف الزيارات. SEO بيبني لك ظهور مجاني ومستمر في جوجل بيكمل معاك حتى لو مدفعتش. يعني استثمار طويل الأجل بدل ما تدفع كل شهر.
+          </div>
+        </details>
+
+        <details class="faq reveal">
+          <summary>
+            موقعي جديد — ينفع أشتغل SEO؟
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-body">
+            أيوه، وده في الحقيقة أحسن وقت! لو بدأت صح من الأول هتوفر وقت وجهد كتير في المستقبل. بنبني الأساس الصح للموقع من أول يوم عشان جوجل يقرأه صح ويبدأ يثق فيه بسرعة.
+          </div>
+        </details>
+
+        <details class="faq reveal">
+          <summary>
+            هل بتشتغل على مواقع خارج مصر؟
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-body">
+            أيوه! بشتغل مع مواقع في مصر والخليج والسعودية وأي دولة عربية أو أجنبية. SEO مفيش فيه حدود جغرافية والخبرة بتنطبق على أي سوق.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">تواصل معايا</span>
+        <h2>كلمني وابدأ <span class="gradient-text">رحلتك في جوجل</span></h2>
+        <p>ملي الفورم أو ابعتلي على واتساب وهرد عليك في أقرب وقت.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>أنا هنا عشانك 👋</h3>
+          <p>سواء عندك سؤال، أو عايز تعرف موقعك فين في جوجل، أو مستعد تبدأ — ابعتلي وهشرحلك كل حاجة ببساطة.</p>
+          <div class="contact-links">
+            <a href="https://wa.me/201012669451" target="_blank" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color:#4ade80"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              واتساب: 01012669451
+            </a>
+            <a href="tel:+201012669451" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              موبايل: 01012669451
+            </a>
+            <a href="mailto:husseinmo182000@gmail.com" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              husseinmo182000@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">الاسم</label>
+              <input type="text" id="name" placeholder="اسمك إيه؟" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">رقم الموبايل</label>
+              <input type="tel" id="phone" placeholder="رقمك للتواصل" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="website">رابط موقعك (لو معاك)</label>
+            <input type="url" id="website" placeholder="https://yoursite.com" />
+          </div>
+          <div class="form-group">
+            <label for="service">الخدمة اللي محتاجها</label>
+            <select id="service">
+              <option value="">— اختار الخدمة —</option>
+              <option>SEO تقني (Technical SEO)</option>
+              <option>محتوى SEO (On-Page)</option>
+              <option>بناء روابط (Off-Page)</option>
+              <option>SEO محلي (Local SEO)</option>
+              <option>باكدج SEO كامل</option>
+              <option>مش عارف — محتاج مشورة</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">قولي أكتر عن مشروعك</label>
+            <textarea id="message" placeholder="إيه نشاطك؟ إيه هدفك؟ وإيه المشكلة اللي بتواجهها دلوقتي؟" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
+            ابعت الرسالة
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+          <p id="form-msg" style="display:none;color:var(--green);font-size:15px;margin-top:8px;font-weight:600;">✅ تم الإرسال! هرد عليك في أقرب وقت.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">حسين <span>.</span></a>
+          <p>متخصص SEO بساعد المواقع والمتاجر تظهر في أول جوجل وتجيب عملاء حقيقيين من غير إعلانات مدفوعة.</p>
+          <div class="social-links">
+            <a href="https://wa.me/201012669451" target="_blank" class="social-link" aria-label="واتساب">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="mailto:husseinmo182000@gmail.com" class="social-link" aria-label="جيميل">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <a href="#home">الرئيسية</a>
+          <a href="#services">خدماتي</a>
+          <a href="#about">ليه أنا؟</a>
+          <a href="#results">نتائجي</a>
+          <a href="#cases">نتائجي</a>
+    <a href="#process">ازاي بشتغل</a>
+          <a href="#contact">تواصل معايا</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>خدماتي</h4>
+          <a href="#services">SEO تقني</a>
+          <a href="#services">محتوى SEO</a>
+          <a href="#services">بناء روابط</a>
+          <a href="#services">SEO محلي</a>
+          <a href="#faq">أسئلة شائعة</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 حسين محمد — جميع الحقوق محفوظة</span>
+        <span style="color:var(--accent);">متخصص SEO 🔍</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating -->
+  <a href="https://wa.me/201012669451" class="wa-btn wa-ping" target="_blank" aria-label="تواصل على واتساب" style="position:fixed;bottom:24px;left:24px;z-index:999;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Sticky header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Progress bar
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (window.scrollY / max * 100) + '%';
+    }, { passive: true });
+
+    // Mobile nav
+    const toggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+    // Active nav
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a, #mobile-nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -80px 0px', threshold: 0.05 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // Form
+    function handleForm(e) {
+      e.preventDefault();
+      const msg = document.getElementById('form-msg');
+      msg.style.display = 'block';
+      e.target.reset();
+      setTimeout(() => { msg.style.display = 'none'; }, 6000);
+    }
+
+    // Case study tabs
+    function showCase(id, btn) {
+      document.querySelectorAll('.case-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
